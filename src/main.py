@@ -1,3 +1,42 @@
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+
+from nicegui import ui
+from src.ui.interface import configure_ui
+
+def main():
+    configure_ui()
+    
+    ui.run(
+        host='0.0.0.0',
+        port=7000,
+        title='Aquatic Coastal Analysis UI', 
+    )
+
+if __name__ in {"__main__", "__mp_main__"}:
+    main()
+
+
+
+# def test():
+#     datasets = load_datasets()
+#     # Теперь datasets – это словарь с ключами:
+#     # ["countries_50m", "marine_polys_10m", "lakes_50m", "rivers_50m"]
+#     # и значениями в виде соответствующих GeoDataFrame.
+
+#     # analyzer = CoastlineAnalyzer(world, marine_polys)
+
+#     # # Определяем прибрежные страны
+#     # coastal_info = analyzer.detect_coastal_countries()
+#     # print(coastal_info[['name', 'is_coastal']])
+
+#     # # Считаем длину береговой линии
+#     # lengths_info = analyzer.calculate_coastline_length()
+#     # print(lengths_info[['name', 'coast_length_m']].head())
+
+
+
 """
 1. Инициализация проекта
 Импортировать все модули и настройки конфигурации.

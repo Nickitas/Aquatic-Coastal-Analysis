@@ -1,0 +1,64 @@
+# ========== Python basics ==========
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.coverage
+.tox/
+.cache
+
+# ========== Virtual environments ==========
+.venv/
+venv/
+ENV/
+env/
+
+# ========== Environment variables ==========
+.env
+
+# ========== OS-specific or editor-specific ==========
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# PyCharm
+.idea/
+
+# ========== Jupyter notebooks checkpoints ==========
+.ipynb_checkpoints
+
+# ========== GIS data, if you prefer not to version them ==========
+# (Откройте нужные папки, если хотите включить или исключить файлы)
+data/raw/
+data/processed/
+
+# Если нужно исключить только тяжелые файлы, например >100MB,
+# можно воспользоваться Git LFS или своими шаблонами.
+
+# ========== Logs ==========
+*.log
+
+# ========== Additional personal / ephemeral files ==========
+*.swp
+*.swo
