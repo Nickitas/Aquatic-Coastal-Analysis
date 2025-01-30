@@ -134,33 +134,35 @@ class AtmosphericEffects:
 
 # TEST
 # ===================================
-# import pandas as pd
+# 
+if __name__ == "__main__":
+    import pandas as pd
 
-# # Пример данных потоков рек
-# river_data = pd.DataFrame({
-#     'date': ['2023-01-01', '2023-02-01', '2023-03-01', '2023-04-01'],
-#     'river_name': ['River A', 'River A', 'River A', 'River A'],
-#     'flow_rate': [300, 400, 500, 600]
-# })
+    # Пример данных потоков рек
+    river_data = pd.DataFrame({
+        'date': ['2023-01-01', '2023-02-01', '2023-03-01', '2023-04-01'],
+        'river_name': ['River A', 'River A', 'River A', 'River A'],
+        'flow_rate': [300, 400, 500, 600]
+    })
 
-# # Пример данных динамики льдов
-# ice_data = pd.DataFrame({
-#     'date': ['2023-01-01', '2023-02-01', '2023-03-01', '2023-04-01'],
-#     'region': ['Region 1', 'Region 1', 'Region 1', 'Region 1'],
-#     'ice_area': [5000, 4000, 3000, 2000]
-# })
+    # Пример данных динамики льдов
+    ice_data = pd.DataFrame({
+        'date': ['2023-01-01', '2023-02-01', '2023-03-01', '2023-04-01'],
+        'region': ['Region 1', 'Region 1', 'Region 1', 'Region 1'],
+        'ice_area': [5000, 4000, 3000, 2000]
+    })
 
-# # Создание экземпляра класса
-# atmospheric_effects = AtmosphericEffects(river_flow_data=river_data, ice_dynamics_data=ice_data)
+    # Создание экземпляра класса
+    atmospheric_effects = AtmosphericEffects(river_flow_data=river_data, ice_dynamics_data=ice_data)
 
-# # Анализ данных
-# atmospheric_effects.analyze_river_flows()
-# atmospheric_effects.analyze_ice_dynamics()
+    # Анализ данных
+    atmospheric_effects.analyze_river_flows()
+    atmospheric_effects.analyze_ice_dynamics()
 
-# # Визуализация данных
-# atmospheric_effects.visualize_river_flows()
-# atmospheric_effects.visualize_ice_dynamics()
+    # Визуализация данных
+    atmospheric_effects.visualize_river_flows()
+    atmospheric_effects.visualize_ice_dynamics()
 
-# # Комбинированное влияние
-# combined_effects = atmospheric_effects.calculate_combined_effects()
-# atmospheric_effects.visualize_combined_effects()
+    # Комбинированное влияние
+    combined_effects = atmospheric_effects.calculate_combined_effects()
+    atmospheric_effects.visualize_combined_effects()

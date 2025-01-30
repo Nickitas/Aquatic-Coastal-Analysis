@@ -91,24 +91,26 @@ class SeaLevelForecast:
 
 # TEST
 # =========================
-# import pandas as pd
+# 
+if __name__ == "__main__":
+    import pandas as pd
 
-# # Загружаем исторические данные
-# data = pd.DataFrame({
-#     'year': [1900, 1920, 1940, 1960, 1980, 2000, 2020],
-#     'sea_level': [0, 5, 10, 20, 30, 50, 70]
-# })
+    # Загружаем исторические данные
+    data = pd.DataFrame({
+        'year': [1900, 1920, 1940, 1960, 1980, 2000, 2020],
+        'sea_level': [0, 5, 10, 20, 30, 50, 70]
+    })
 
-# # Инициализация класса
-# forecast = SeaLevelForecast(historical_data=data)
+    # Инициализация класса
+    forecast = SeaLevelForecast(historical_data=data)
 
-# # Обучение модели
-# forecast.train_model()
+    # Обучение модели
+    forecast.train_model()
 
-# # Прогноз уровня моря до 2100 года
-# future_years = list(range(2021, 2101))
-# predictions = forecast.predict_future_levels(future_years)
-# print(predictions)
+    # Прогноз уровня моря до 2100 года
+    future_years = list(range(2021, 2101))
+    predictions = forecast.predict_future_levels(future_years)
+    print(predictions)
 
-# # Построение графика
-# forecast.plot_forecast(future_years)
+    # Построение графика
+    forecast.plot_forecast(future_years)

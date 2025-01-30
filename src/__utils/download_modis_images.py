@@ -1,5 +1,3 @@
-# !pip install --upgrade earthaccess
-
 import earthaccess
 import logging
 from datetime import datetime, timedelta

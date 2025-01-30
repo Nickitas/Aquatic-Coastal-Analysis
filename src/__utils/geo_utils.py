@@ -133,24 +133,26 @@ class GeoUtils:
 
 # TEST
 # =========================
+# 
+if __name__ == "__main__":
+    
+    from shapely.geometry import Point, Polygon, LineString
+    import geopandas as gpd
 
-# from shapely.geometry import Point, Polygon, LineString
-# import geopandas as gpd
+    # Расчёт расстояния
+    coord1 = (55.7558, 37.6173)  # Москва
+    coord2 = (59.9343, 30.3351)  # Санкт-Петербург
+    distance = GeoUtils.haversine_distance(coord1, coord2)
+    print(f"Расстояние между Москвой и Санкт-Петербургом: {distance:.2f} км")
 
-# # Пример: Расчёт расстояния
-# coord1 = (55.7558, 37.6173)  # Москва
-# coord2 = (59.9343, 30.3351)  # Санкт-Петербург
-# distance = GeoUtils.haversine_distance(coord1, coord2)
-# print(f"Расстояние между Москвой и Санкт-Петербургом: {distance:.2f} км")
+    # Создание буфера вокруг точки
+    point = Point(37.6173, 55.7558)  # Координаты Москвы
+    buffer = GeoUtils.create_buffer(point, 10000)  # Буфер в 10 км
 
-# # Пример: Создание буфера вокруг точки
-# point = Point(37.6173, 55.7558)  # Координаты Москвы
-# buffer = GeoUtils.create_buffer(point, 10000)  # Буфер в 10 км
+    # Вычисление площади полигона
+    polygon = buffer
+    area = GeoUtils.calculate_polygon_area(polygon)
+    print(f"Площадь буфера: {area:.2f} км²")
 
-# # Пример: Вычисление площади полигона
-# polygon = buffer
-# area = GeoUtils.calculate_polygon_area(polygon)
-# print(f"Площадь буфера: {area:.2f} км²")
-
-# # Пример: Загрузка GeoJSON файла
-# # geo_data = GeoUtils.load_geojson("coastline.geojson")
+    # Загрузка GeoJSON файла
+    geo_data = GeoUtils.load_geojson("data\raw\countries_50m.geojson")

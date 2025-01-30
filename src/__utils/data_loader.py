@@ -2,10 +2,11 @@ import os
 import requests
 import geopandas as gpd
 
-def download_file(url: str, filepath: str) -> None:
+def download_file(url: str, filepath: str, logger=print) -> None:
     """
     Скачивает файл по ссылке url и сохраняет его по пути filepath.
     Если файл уже существует, повторно не скачивает.
+    Параметр logger - функция, которой отправлять сообщения (print или другой).
     """
     if not os.path.exists(filepath):
         print(f"Скачиваю: {url}")
@@ -15,15 +16,16 @@ def download_file(url: str, filepath: str) -> None:
             f.write(response.content)
     else:
         print(f"Файл {filepath} уже существует, пропускаем скачивание.")
+        logger(f"Файл {filepath} уже существует, пропускаем скачивание.")
 
 
-def load_datasets(raw_dir="data/raw", processed_dir="data/processed"):
+def load_datasets(raw_dir="data/raw", processed_dir="data/processed", logger=print):
     """
     Загружает и сохраняет данные Natural Earth о странах, морях,
     а также дополнительные данные о водных объектах (реки, озера и т.д.).
     """
 
-    # Ссылки на разные наборы данных Natural Earth (пример для 50m и 10m)
+    # Ссылки на разные наборы данных Natural Earth (для 50m и 10m)
     DATASETS = {
         "countries_50m": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson",
         "marine_polys_10m": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_geography_marine_polys.geojson",
@@ -46,6 +48,7 @@ def load_datasets(raw_dir="data/raw", processed_dir="data/processed"):
 
         # 2. Читаем при помощи GeoPandas
         print(f"Читаем GeoDataFrame из {raw_path}")
+        logger(f"Читаем GeoDataFrame из {raw_path}")
         gdf = gpd.read_file(raw_path)
 
         # 3. Обработка/очистка данных gdf
@@ -53,6 +56,7 @@ def load_datasets(raw_dir="data/raw", processed_dir="data/processed"):
 
         # 4. Сохраняем в обработанном виде (например, в формате GeoPackage)
         print(f"Сохраняем обработанные данные в {processed_path}")
+        logger(f"Сохраняем обработанные данные в {processed_path}")
         gdf.to_file(processed_path, driver="GPKG")
 
         # Сохраним в словарь, чтобы потом можно было использовать в коде

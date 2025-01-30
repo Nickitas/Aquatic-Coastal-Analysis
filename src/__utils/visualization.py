@@ -134,26 +134,28 @@ class VisualizationUtils:
 
 # TEST
 # ========================
-# import geopandas as gpd
-# from shapely.geometry import Point, LineString, Polygon
-# from utils.visualization import VisualizationUtils
+# 
+if __name__ == "__main__":
+    import geopandas as gpd
+    from shapely.geometry import Point, LineString, Polygon
+    from utils.visualization import VisualizationUtils
 
-# # Пример данных
-# world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+    # Пример данных
+    world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 
-# # Пример: точка
-# point = Point(10, 50)
-# VisualizationUtils.plot_point_on_map(point, world, title="Пример точки на карте")
+    # точка
+    point = Point(10, 50)
+    VisualizationUtils.plot_point_on_map(point, world, title="Пример точки на карте")
 
-# # Пример: линия
-# line = LineString([(10, 50), (15, 55), (20, 50)])
-# VisualizationUtils.plot_line_on_map(line, world, title="Пример линии на карте")
+    # линия
+    line = LineString([(10, 50), (15, 55), (20, 50)])
+    VisualizationUtils.plot_line_on_map(line, world, title="Пример линии на карте")
 
-# # Пример: полигон
-# polygon = Polygon([(10, 50), (15, 55), (20, 50), (10, 50)])
-# VisualizationUtils.visualize_polygon(polygon, world, title="Пример полигона на карте")
+    # полигон
+    polygon = Polygon([(10, 50), (15, 55), (20, 50), (10, 50)])
+    VisualizationUtils.visualize_polygon(polygon, world, title="Пример полигона на карте")
 
-# # Пример: временной ряд
-# data = [10, 20, 15, 25, 30]
-# labels = ['2020', '2021', '2022', '2023', '2024']
-# VisualizationUtils.plot_time_series(data, labels, title="Пример временного ряда")
+    # временной ряд
+    data = [10, 20, 15, 25, 30]
+    labels = ['2020', '2021', '2022', '2023', '2024']
+    VisualizationUtils.plot_time_series(data, labels, title="Пример временного ряда")
