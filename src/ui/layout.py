@@ -1,5 +1,7 @@
 from nicegui import ui
 
+from src.ui.components.create_section_header import create_section_header
+
 dark = ui.dark_mode()
 
 def create_layout():
@@ -22,14 +24,33 @@ def create_layout():
     # ЛЕВАЯ ПАНЕЛЬ
     with ui.left_drawer(top_corner=True, bottom_corner=True) \
             .classes('w-38 p-4 bg-gray-100 dark:bg-slate-900'):
-        with ui.row().classes('items-center gap-2 mb-2 w-full'):
-            # Иконка
-            ui.icon('spoke') \
-              .classes('text-2xl text-blue-500 dark:text-blue-300')
-            ui.label("Разделы").classes('text-lg font-extrabold')
+        create_section_header(
+            title='Настройки',
+            subtitle='Быстрые настройки для работы',
+            heading_level=3
+        )
 
-        ui.separator().classes('mb-6')
+        ui.separator()
 
+        with ui.dropdown_button('Open me!', auto_close=True):
+            ui.item('Item 1', on_click=lambda: ui.notify('You clicked item 1'))
+            ui.item('Item 2', on_click=lambda: ui.notify('You clicked item 2'))
+
+
+        with ui.tabs().classes('w-full') as tabs:
+            one = ui.tab('One')
+            two = ui.tab('Two')
+        with ui.tab_panels(tabs, value=two).classes('w-full'):
+            with ui.tab_panel(one):
+                ui.label('First tab')
+            with ui.tab_panel(two):
+                ui.label('Second tab')
+
+
+
+
+    # ПРАВАЯ ПАНЕЛЬ
+    with ui.right_drawer(fixed=False).props('bordered') as right_drawer:
         def nav_button(icon_name: str, text: str, route: str):
             ui.button(text, icon=icon_name, on_click=lambda: ui.navigate.to(route)) \
                 .props('flat') \
@@ -50,10 +71,6 @@ def create_layout():
 
         ui.separator()
         nav_button('logout', 'Выйти', '/signin')
-
-    # ПРАВАЯ ПАНЕЛЬ
-    with ui.right_drawer(fixed=False).props('bordered') as right_drawer:
-        ui.label('????').classes('text-lg font-bold mb-4')
 
     # ФУТЕР
     with ui.footer():
