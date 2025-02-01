@@ -48,7 +48,6 @@ def create_layout():
 
 
 
-
     # ПРАВАЯ ПАНЕЛЬ
     with ui.right_drawer(fixed=False).props('bordered') as right_drawer:
         def nav_button(icon_name: str, text: str, route: str):

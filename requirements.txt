@@ -1,1 +1,12 @@
 nicegui>=1.3
+numpy
+pandas
+matplotlib
+geopandas
+shapely
+sklearn
+fastapi
+starlette
+dotenv
+secrets
+requests
