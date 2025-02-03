@@ -26,26 +26,42 @@ def create_layout():
             .classes('w-38 p-4 bg-gray-100 dark:bg-slate-900'):
         create_section_header(
             title='Настройки',
-            subtitle='Быстрые настройки для работы',
+            subtitle='Введите координаты нужного места или нажмите на карту',
             heading_level=3
         )
 
-        ui.separator()
-
-        with ui.dropdown_button('Open me!', auto_close=True):
-            ui.item('Item 1', on_click=lambda: ui.notify('You clicked item 1'))
-            ui.item('Item 2', on_click=lambda: ui.notify('You clicked item 2'))
-
 
         with ui.tabs().classes('w-full') as tabs:
-            one = ui.tab('One')
-            two = ui.tab('Two')
+            one = ui.tab('Координаты')
+            two = ui.tab('Карта')
         with ui.tab_panels(tabs, value=two).classes('w-full'):
             with ui.tab_panel(one):
-                ui.label('First tab')
+                ui.label('Введите координаты: ').classes('text-lg font-light text-gray-600 dark:text-white')
+                ui.input('Широта', placeholder='47.236')
+                ui.input('Долгота', placeholder='39.718')
             with ui.tab_panel(two):
-                ui.label('Second tab')
+                ui.label('Окно карты')
 
+        
+        ui.label('Погода').classes('text-lg font-light text-gray-600 dark:text-white')
+        grid = ui.aggrid({
+            'defaultColDef': {'flex': 1},
+            'columnDefs': [
+                {'headerName': 'Параметр', 'field': 'name'},
+                {'headerName': 'Значение', 'field': 'value'},
+            ],
+            'rowData': [
+                {'name': 'Описание', 'value': "",},
+                {'name': 'Температура', 'value': "",},
+                {'name': 'Давление', 'value': "",},
+                {'name': 'Влажность', 'value': "",},
+                {'name': 'Ветер', 'value': "",},
+                {'name': 'Видимость', 'value': "",},
+                {'name': 'Восход солнца', 'value': "",},
+                {'name': 'Закат солнца', 'value': "",},
+            ],
+            'rowSelection': 'multiple',
+        })
 
 
     # ПРАВАЯ ПАНЕЛЬ

@@ -15,7 +15,8 @@ aquatic_coastal_analysis/
 │   │   ├── __init__.py
 │   │   ├── data_loader.py    # Загрузка и предобработка данных
 │   │   ├── geo_utils.py      # Географические и картографические операции
-│   │   └── visualization.py  # Вспомогательные функции визуализации
+│   │   ├── visualization.py  # Вспомогательные функции визуализации 
+│   │   └── weather_utils.py  # Файл работы с OpenWeatherMap
 │   │
 │   │
 │   ├── ui/                   # Определение интерфейса проекта
@@ -28,11 +29,16 @@ aquatic_coastal_analysis/
 │   │
 │   │
 │   │
+│   │
+│   │
+│   │
+│   │
 │   ├── analysis/     # Анализ прибрежных систем
 │   │   ├── __init__.py
 │   │   ├── coastline_analysis.py
 │   │   ├── sea_level_model.py
 │   │   ├── oil_spill_detection.py
+│   │   └── coastal_weather_forecast.py  # Анализ прогноза погоды
 │   │   └── flooding_risk.py
 │   │
 │   ├── visualization/        # Визуализация данных

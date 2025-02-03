@@ -10,3 +10,4 @@ starlette
 dotenv
 secrets
 requests
+python-dotenv
