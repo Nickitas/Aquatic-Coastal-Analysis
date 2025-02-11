@@ -52,14 +52,4 @@ def home_page():
                 ui.label(f"Условия: {weather.get('description', 'N/A')}").classes('text-md text-gray-600 text-center')
 
 
-        # Карточка с текущим временем
-        with ui.row().classes('gap-4 items-start'):
-            with ui.card().classes('max-w-sm p-4 shadow-lg'):
-                ui.icon('schedule', size=120).classes('text-green-500 mx-auto mb-1')
-                time_label = ui.label().classes('text-md font-medium my-2 text-center')
-
-                def update_time():
-                    current_time = datetime.now().strftime('%H:%M:%S')
-                    time_label.set_text(f"{current_time}").classes('text-md font-extrabold my-2 text-center')
-
-                ui.timer(interval=1.0, callback=update_time)
+        

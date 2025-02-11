@@ -63,3 +63,24 @@ def load_datasets(raw_dir="data/raw", processed_dir="data/processed", logger=pri
         geo_dataframes[name] = gdf
 
     return geo_dataframes
+
+
+
+# TEST
+# 
+# =================
+if __name__ == '__main__':
+    aquatic_data = load_datasets()
+    marine_objects = aquatic_data.get('marine_polys_10m', None)
+
+    # Проверяем наличие данных в marine_objects
+    if marine_objects is not None and not marine_objects.empty:
+        marine_names = marine_objects['name'].fillna('Без имени').tolist()
+    else:
+        marine_names = []
+        print("Внимание: Данные о морских объектах отсутствуют или невалидны.")
+
+
+    print(aquatic_data)
+    print(marine_objects)
+    

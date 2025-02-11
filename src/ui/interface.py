@@ -44,4 +44,4 @@ def configure_ui():
     # 3. Важно: раз импорт страниц уже сделан выше, декораторы @ui.page
     #    зарегистрированы, и middleware будет отрабатывать для них всех.
     # Импортируем страницы, чтобы зарегистрировать @ui.page
-    from .pages import signin, logout, home, analysis, models, data, visualization, settings
+    from .pages import signin, logout, home, analysis, models, data, visualization, settings, add_location

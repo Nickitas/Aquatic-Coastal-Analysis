@@ -7,7 +7,8 @@ from src.ui.interface import configure_ui
 
 def main():
     configure_ui() 
-    
+
+
     ui.run(
         host='0.0.0.0',
         port=7001,
